@@ -1,0 +1,28 @@
+import React from 'react';
+import { View, Pressable, Switch } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
+import { ActionButton, AppText, AudioAction, BrandLogo, DemoNotice, FeatureCard, LabeledInput, SelectionCard } from '@/components/AgendaMaisUI';
+import { StatusText, SelectionPill, SectionHeading, PreferenceSwitch, InfoCard, EmptyState } from '@/components/common/AgendaScreenParts';
+import { styles } from '@/styles/agendaStyles';
+import { specialties, exampleTimes, titles, descriptions } from '@/constants/agendaData';
+import { formatDay, visitLabel } from '@/utils/agendaHelpers';
+import type { AgendaController } from '@/hooks/useAgendaController';
+
+export default function WelcomeScreen(ctx: Pick<AgendaController, 'go' | 'read'>) {
+  const { go, read } = ctx;
+      return (
+        <>
+          <View style={styles.centerBlock}>
+            <BrandLogo size={78} />
+            <AppText variant="title" style={styles.centerText}>Olá! Vamos começar?</AppText>
+            <AppText variant="body" style={styles.centerText}>
+              Você pode conhecer o AgendaMais+ sem criar uma conta. Todas as consultas desta versão são exemplos.
+            </AppText>
+          </View>
+          <DemoNotice onRead={read}>Nenhum serviço médico real está conectado a esta demonstração.</DemoNotice>
+          <ActionButton title="Começar sem conta" icon="arrow-forward" onPress={() => go('accessibility')} />
+          <ActionButton title="Entrar na demonstração" icon="log-in-outline" kind="secondary" onPress={() => go('login')} />
+          <ActionButton title="Criar cadastro de demonstração" icon="person-add-outline" kind="outline" onPress={() => go('register')} />
+        </>
+      );
+}
