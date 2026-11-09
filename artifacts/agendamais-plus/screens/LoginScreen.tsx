@@ -14,8 +14,8 @@ export default function LoginScreen(ctx: Pick<AgendaController, 'loginEmail' | '
         <>
           <DemoNotice onRead={read}>Não use sua senha real. O acesso é local e não cria uma conta.</DemoNotice>
           <LabeledInput
-            label="E-mail de exemplo"
-            readText="Digite um e-mail fictício para demonstrar o formulário. Ele não será guardado."
+            label="E-mail"
+            readText="Digite seu e-mail para continuar. Ele não será guardado."
             value={loginEmail}
             onChangeText={setLoginEmail}
             placeholder="voce@exemplo.com"
@@ -25,8 +25,8 @@ export default function LoginScreen(ctx: Pick<AgendaController, 'loginEmail' | '
             testID="login-email"
           />
           <LabeledInput
-            label="Senha de demonstração"
-            readText="Digite qualquer senha fictícia com pelo menos 4 caracteres. Não use sua senha real."
+            label="Senha"
+            readText="Digite uma senha com pelo menos 4 caracteres. Não use sua senha real."
             value={loginPassword}
             onChangeText={setLoginPassword}
             placeholder="Não use sua senha real"
@@ -35,9 +35,9 @@ export default function LoginScreen(ctx: Pick<AgendaController, 'loginEmail' | '
             testID="login-password"
           />
           {formMessage ? <DemoNotice tone="warning" onRead={read}>{formMessage}</DemoNotice> : null}
-          <ActionButton title="Continuar demonstração" icon="arrow-forward" onPress={submitLogin} testID="login-submit" />
+          <ActionButton title="Continuar" icon="arrow-forward" onPress={submitLogin} testID="login-submit" />
           <ActionButton title="Esqueci minha senha" icon="help-circle-outline" kind="outline" onPress={() => go('recovery')} />
-          <ActionButton title="Criar cadastro de demonstração" icon="person-add-outline" kind="secondary" onPress={() => go('register')} />
+          <ActionButton title="Criar cadastro" icon="person-add-outline" kind="secondary" onPress={() => go('register')} />
           <ActionButton title="Entrar sem conta" icon="home-outline" kind="outline" onPress={() => openTab('home')} />
         </>
       );

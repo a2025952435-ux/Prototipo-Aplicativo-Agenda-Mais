@@ -32,14 +32,14 @@ export default function AppointmentDetailScreen(ctx: Pick<AgendaController, 'spe
             <ActionButton title="Voltar e reagendar" icon="create-outline" kind="secondary" onPress={() => beginReschedule(selectedBooking)} />
           ) : null}
           {selectedBooking.status === 'upcoming' && !cancelPrompt ? (
-            <ActionButton title="Cancelar exemplo" icon="close-circle-outline" kind="outline" onPress={() => setCancelPrompt(true)} />
+            <ActionButton title="Cancelar agendamento" icon="close-circle-outline" kind="outline" onPress={() => setCancelPrompt(true)} />
           ) : null}
           {selectedBooking.status === 'upcoming' && cancelPrompt ? (
-            <DemoNotice tone="warning" onRead={read}>Deseja marcar este registro fictício como cancelado?</DemoNotice>
+            <DemoNotice tone="warning" onRead={read}>Deseja cancelar este agendamento salvo no dispositivo?</DemoNotice>
           ) : null}
           {cancelPrompt ? (
             <>
-              <ActionButton title="Sim, cancelar exemplo" icon="checkmark" kind="danger" onPress={cancelBooking} />
+              <ActionButton title="Sim, cancelar" icon="checkmark" kind="danger" onPress={cancelBooking} />
               <ActionButton title="Manter agendamento" icon="arrow-back" kind="outline" onPress={() => setCancelPrompt(false)} />
             </>
           ) : null}

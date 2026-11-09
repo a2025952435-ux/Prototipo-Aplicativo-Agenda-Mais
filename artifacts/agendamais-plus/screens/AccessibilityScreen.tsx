@@ -12,7 +12,7 @@ export default function AccessibilityScreen(ctx: Pick<AgendaController, 'prefere
   const { preferences, openTab, read, changeFont, togglePreference } = ctx;
       return (
         <>
-          <AppText variant="body">Escolha o tamanho do texto e o contraste que deixam a demonstração mais confortável.</AppText>
+          <AppText variant="body">Escolha o tamanho do texto e o contraste que tornam a leitura mais confortável.</AppText>
           <SectionHeading title="Tamanho do texto" read={read} />
           <View style={styles.wrapRow}>
             {(['normal', 'grande', 'extragrande'] as const).map((font) => (
@@ -20,7 +20,7 @@ export default function AccessibilityScreen(ctx: Pick<AgendaController, 'prefere
             ))}
           </View>
           <PreferenceSwitch title="Alto contraste" description="Deixa bordas e textos mais destacados." value={preferences.contrast} onChange={() => togglePreference('contrast')} read={read} />
-          <PreferenceSwitch title="Orientação automática" description="Preferência demonstrativa, sem leitura automática real." value={preferences.guidance} onChange={() => togglePreference('guidance')} read={read} />
+          <PreferenceSwitch title="Orientação automática" description="A orientação automática por voz ainda não está disponível." value={preferences.guidance} onChange={() => togglePreference('guidance')} read={read} />
           <DemoNotice onRead={read}>O botão de alto-falante mostra uma simulação visual. Não há reprodução de áudio.</DemoNotice>
           <ActionButton title="Salvar e ir ao início" icon="arrow-forward" onPress={() => openTab('home')} />
           <ActionButton title="Ajustar depois" icon="settings-outline" kind="outline" onPress={() => openTab('home')} />

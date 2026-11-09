@@ -17,7 +17,7 @@ export default function SuccessScreen(ctx: Pick<AgendaController, 'bookings' | '
             <Ionicons name="checkmark" size={58} color={theme.primaryForeground} />
           </View>
           <AppText variant="title" style={styles.centerText}>Sua consulta foi agendada!</AppText>
-          <AppText variant="body" style={styles.centerText}>Este é um agendamento fictício para a demonstração.</AppText>
+          <AppText variant="body" style={styles.centerText}>O agendamento foi salvo neste dispositivo.</AppText>
           {booked ? (
             <View style={styles.summaryCard}>
               <InfoCard title="Profissional" value={booked.provider} icon="person-outline" onRead={read} />

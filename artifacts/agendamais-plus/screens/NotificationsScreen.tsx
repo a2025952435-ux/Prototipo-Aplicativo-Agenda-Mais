@@ -16,7 +16,7 @@ export default function NotificationsScreen(ctx: Pick<AgendaController, 'notices
           <DemoNotice onRead={read}>Não há envio de mensagens ou notificações push.</DemoNotice>
           <View style={styles.sectionHeading}>
             <AppText variant="section" style={{ flex: 1 }}>{unread} aviso(s) não lido(s)</AppText>
-            <AudioAction text={`${unread} avisos não lidos. Os avisos são exemplos locais.`} onRead={read} compact />
+            <AudioAction text={`${unread} avisos não lidos. Confira seus avisos locais.`} onRead={read} compact />
           </View>
           {notices.map((notice) => (
             <Pressable

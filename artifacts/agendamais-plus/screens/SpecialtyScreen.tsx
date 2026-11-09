@@ -13,16 +13,15 @@ export default function SpecialtyScreen(ctx: Pick<AgendaController, 'visitType' 
       return (
         <>
           <SectionHeading title="Tipo de consulta" read={read} />
-          <SelectionCard title="Consulta online" description="Acesso em vídeo apenas demonstrativo." icon="videocam-outline" selected={visitType === 'online'} onPress={() => setVisitType('online')} onRead={read} />
-          <SelectionCard title="Consulta presencial" description="Local de atendimento não informado nesta demonstração." icon="location-outline" selected={visitType === 'presencial'} onPress={() => setVisitType('presencial')} onRead={read} />
+          <SelectionCard title="Consulta online" description="A videochamada ainda não está disponível." icon="videocam-outline" selected={visitType === 'online'} onPress={() => setVisitType('online')} onRead={read} />
+          <SelectionCard title="Consulta presencial" description="Local de atendimento não informado." icon="location-outline" selected={visitType === 'presencial'} onPress={() => setVisitType('presencial')} onRead={read} />
           <SectionHeading title="Escolha uma especialidade" read={read} />
           <View style={styles.wrapRow}>
             {specialties.map((item) => (
               <SelectionPill key={item} label={item} selected={specialty === item} onPress={() => setSpecialty(item)} testID={`specialty-${item}`} />
             ))}
           </View>
-          <DemoNotice onRead={read}>A lista é fictícia. Não representa médicos ou vagas reais.</DemoNotice>
-          <ActionButton title="Ver profissionais de exemplo" icon="arrow-forward" onPress={() => { setSearch(''); go('doctors'); }} />
+          <ActionButton title="Ver profissionais" icon="arrow-forward" onPress={() => { setSearch(''); go('doctors'); }} />
         </>
       );
 }

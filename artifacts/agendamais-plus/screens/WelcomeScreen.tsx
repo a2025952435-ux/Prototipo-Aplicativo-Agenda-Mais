@@ -16,13 +16,12 @@ export default function WelcomeScreen(ctx: Pick<AgendaController, 'go' | 'read'>
             <BrandLogo size={78} />
             <AppText variant="title" style={styles.centerText}>Olá! Vamos começar?</AppText>
             <AppText variant="body" style={styles.centerText}>
-              Você pode conhecer o AgendaMais+ sem criar uma conta. Todas as consultas desta versão são exemplos.
+              Você pode conhecer o AgendaMais+ sem criar uma conta.
             </AppText>
           </View>
-          <DemoNotice onRead={read}>Nenhum serviço médico real está conectado a esta demonstração.</DemoNotice>
           <ActionButton title="Começar sem conta" icon="arrow-forward" onPress={() => go('accessibility')} />
-          <ActionButton title="Entrar na demonstração" icon="log-in-outline" kind="secondary" onPress={() => go('login')} />
-          <ActionButton title="Criar cadastro de demonstração" icon="person-add-outline" kind="outline" onPress={() => go('register')} />
+          <ActionButton title="Entrar" icon="log-in-outline" kind="secondary" onPress={() => go('login')} />
+          <ActionButton title="Criar cadastro" icon="person-add-outline" kind="outline" onPress={() => go('register')} />
         </>
       );
 }

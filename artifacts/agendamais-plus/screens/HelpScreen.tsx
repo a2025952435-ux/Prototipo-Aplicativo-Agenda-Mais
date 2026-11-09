@@ -12,11 +12,10 @@ export default function HelpScreen(ctx: Pick<AgendaController, 'go' | 'openTab' 
   const { go, openTab, read } = ctx;
       return (
         <>
-          <DemoNotice onRead={read}>Esta ajuda ensina a navegar na demonstração. Não substitui orientação de saúde.</DemoNotice>
-          <InfoCard title="Como agendar" value="Toque em Agendar consulta, escolha um tipo, uma especialidade, um profissional fictício e uma data e horário de exemplo." icon="calendar-outline" onRead={read} />
-          <InfoCard title="Como ver seus registros" value="Abra Minhas consultas para revisar, reagendar ou cancelar exemplos." icon="clipboard-outline" onRead={read} />
-          <InfoCard title="Como usar a leitura" value="Toque em Ouvir explicação. Uma faixa mostrará o texto simulado. Toque em Interromper para fechá-la." icon="volume-high-outline" onRead={read} />
-          <InfoCard title="Precisa de ajuda agora?" value="Este protótipo não tem atendimento humano ou serviço de suporte conectado." icon="help-circle-outline" onRead={read} />
+          <InfoCard title="Como agendar" value="Toque em Agendar consulta, escolha um tipo, uma especialidade, um profissional, uma data e um horário." icon="calendar-outline" onRead={read} />
+          <InfoCard title="Como ver seus registros" value="Abra Minhas consultas para revisar, reagendar ou cancelar agendamentos." icon="clipboard-outline" onRead={read} />
+          <InfoCard title="Como usar a leitura" value="Toque em Ouvir explicação. Uma faixa mostrará o texto para leitura. Toque em Interromper para fechá-la." icon="volume-high-outline" onRead={read} />
+          <InfoCard title="Precisa de ajuda agora?" value="O atendimento por uma equipe de suporte não está disponível." icon="help-circle-outline" onRead={read} />
           <ActionButton title="Abrir acessibilidade" icon="accessibility-outline" onPress={() => go('accessibility')} />
           <ActionButton title="Voltar ao início" icon="home-outline" kind="outline" onPress={() => openTab('home')} />
         </>

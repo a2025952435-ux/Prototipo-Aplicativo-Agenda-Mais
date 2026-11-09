@@ -83,7 +83,7 @@ function AgendaMaisApp() {
         </AppText>
         <AudioAction
           inverted
-          text="Cuidar da sua saúde ficou mais fácil. O AgendaMais+ é uma demonstração com foco em autonomia e acessibilidade."
+          text="Cuidar da sua saúde ficou mais fácil. O AgendaMais+ foi pensado para oferecer autonomia e acessibilidade."
           onRead={read}
         />
         <View style={styles.openingDots} accessibilityLabel="Tela 1 de 3">
@@ -93,9 +93,9 @@ function AgendaMaisApp() {
         </View>
       </View>
       <View style={styles.openingFooter}>
-        <ActionButton title="Começar demonstração" icon="arrow-forward" onPress={() => go('welcome')} kind="outline" />
+        <ActionButton title="Começar" icon="arrow-forward" onPress={() => go('welcome')} kind="outline" />
         <AppText variant="caption" style={{ color: theme.primaryForeground, textAlign: 'center', opacity: 0.8 }}>
-          Protótipo acadêmico · sem atendimento de saúde
+          
         </AppText>
       </View>
     </View>
@@ -148,7 +148,7 @@ function AgendaMaisApp() {
           </View>
           <AudioAction
             compact
-            text={`${titles[screen]}. ${descriptions[screen] ?? 'Tela de demonstração do AgendaMais+.'}`}
+            text={`${titles[screen]}. ${descriptions[screen] ?? 'Tela do AgendaMais+.'}`}
             onRead={read}
           />
         </View>
@@ -202,7 +202,7 @@ function AgendaMaisApp() {
             <BrandLogo size={92} inverted={screen === 'opening'} />
             <ActivityIndicator color={screen === 'opening' ? theme.primaryForeground : theme.primary} />
             <AppText variant="caption" style={{ color: screen === 'opening' ? theme.primaryForeground : theme.mutedForeground }}>
-              Preparando a demonstração…
+              Preparando o aplicativo…
             </AppText>
           </View>
         ) : (
@@ -213,7 +213,7 @@ function AgendaMaisApp() {
                 <View style={styles.readingText}>
                   <Ionicons name="volume-high-outline" size={24} color={theme.primaryForeground} />
                   <View style={{ flex: 1 }}>
-                    <AppText variant="caption" style={{ color: theme.primaryForeground, fontWeight: '700' }}>Leitura de demonstração</AppText>
+                    <AppText variant="caption" style={{ color: theme.primaryForeground, fontWeight: '700' }}>Leitura da tela</AppText>
                     <AppText variant="caption" numberOfLines={2} style={{ color: theme.primaryForeground }}>{activeReading}</AppText>
                   </View>
                 </View>

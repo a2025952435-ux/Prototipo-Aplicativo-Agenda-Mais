@@ -12,8 +12,7 @@ export default function DoctorsScreen(ctx: Pick<AgendaController, 'specialty' | 
   const { specialty, setProvider, search, setSearch, theme, matchingProviders, go, back, read } = ctx;
       return (
         <>
-          <DemoNotice onRead={read}>Profissionais e horários são fictícios e servem somente para percorrer as telas.</DemoNotice>
-          <LabeledInput label="Buscar nesta lista de exemplo" readText="Digite parte do nome fictício ou da especialidade." value={search} onChangeText={setSearch} placeholder="Buscar profissional" autoCapitalize="none" />
+          <LabeledInput label="Buscar profissionais" readText="Digite parte do nome ou da especialidade." value={search} onChangeText={setSearch} placeholder="Buscar profissional" autoCapitalize="none" />
           {matchingProviders.map((item) => (
             <View key={item.name} style={[styles.personCard, { backgroundColor: theme.card, borderColor: theme.border }]}>
               <View style={[styles.avatar, { backgroundColor: theme.secondary }]}>
@@ -22,14 +21,13 @@ export default function DoctorsScreen(ctx: Pick<AgendaController, 'specialty' | 
               <View style={{ flex: 1, gap: 4 }}>
                 <AppText variant="section">{item.name}</AppText>
                 <AppText variant="body">{item.specialty}</AppText>
-                <AppText variant="caption">Perfil fictício · sem clínica associada</AppText>
               </View>
-              <AudioAction text={`${item.name}. Especialidade: ${item.specialty}. Profissional fictício de demonstração.`} onRead={read} compact />
+              <AudioAction text={`${item.name}. Especialidade: ${item.specialty}. `} onRead={read} compact />
               <ActionButton title="Ver perfil" icon="chevron-forward" kind="secondary" onPress={() => { setProvider(item.name); go('doctor'); }} />
             </View>
           ))}
           {matchingProviders.length === 0 ? (
-            <EmptyState title="Nenhum exemplo encontrado" description="Tente buscar por outra palavra." icon="search-outline" />
+            <EmptyState title="Nenhum profissional encontrado" description="Tente buscar por outra palavra." icon="search-outline" />
           ) : null}
           <ActionButton title="Escolher outra especialidade" icon="arrow-back" kind="outline" onPress={() => go('specialty')} />
         </>

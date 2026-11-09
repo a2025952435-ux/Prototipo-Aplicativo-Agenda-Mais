@@ -17,7 +17,7 @@ export default function ConfirmationScreen(ctx: Pick<AgendaController, 'visitTyp
           <InfoCard title="Tipo de consulta" value={visitLabel(visitType)} icon={visitType === 'online' ? 'videocam-outline' : 'location-outline'} onRead={read} />
           <InfoCard title="Data" value={selectedDate ? formatDay(selectedDate) : 'Não selecionada'} icon="calendar-outline" onRead={read} />
           <InfoCard title="Horário" value={selectedTime || 'Não selecionado'} icon="time-outline" onRead={read} />
-          <DemoNotice onRead={read}>Ao confirmar, somente um registro fictício será salvo neste dispositivo. Nenhum serviço médico será contatado.</DemoNotice>
+          <DemoNotice onRead={read}>Ao confirmar, o agendamento será salvo apenas neste dispositivo. Nenhuma clínica receberá a solicitação.</DemoNotice>
           <ActionButton title="Confirmar consulta" icon="checkmark-circle-outline" onPress={saveBooking} testID="confirm-booking" />
           <ActionButton title="Voltar e alterar" icon="arrow-back" kind="outline" onPress={() => go('schedule')} />
         </>

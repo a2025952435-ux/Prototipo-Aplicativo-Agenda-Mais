@@ -14,7 +14,7 @@ export default function SettingsScreen(ctx: Pick<AgendaController, 'storageAvail
         <>
           <DemoNotice onRead={read}>
             {storageAvailable
-              ? 'Agendamentos fictícios, avisos e preferências ficam somente neste dispositivo. Nada é enviado a um servidor.'
+              ? 'Agendamentos, avisos e preferências ficam neste dispositivo. Nada é enviado a um servidor.'
               : 'Não foi possível salvar nesta sessão. As alterações serão perdidas ao fechar o app.'}
           </DemoNotice>
           <SectionHeading title="Tamanho do texto" read={read} />
@@ -25,8 +25,8 @@ export default function SettingsScreen(ctx: Pick<AgendaController, 'storageAvail
           </View>
           <PreferenceSwitch title="Alto contraste" description="Realça texto, botões e contornos." value={preferences.contrast} onChange={() => togglePreference('contrast')} read={read} />
           <SectionHeading title="Orientações visuais" read={read} />
-          <PreferenceSwitch title="Orientação automática" description="Preferência demonstrativa; não inicia áudio." value={preferences.guidance} onChange={() => togglePreference('guidance')} read={read} />
-          <PreferenceSwitch title="Lembretes de demonstração" description="Ajusta somente os avisos locais do exemplo." value={preferences.reminders} onChange={() => togglePreference('reminders')} read={read} />
+          <PreferenceSwitch title="Orientação automática" description="A orientação por voz automática ainda não está disponível." value={preferences.guidance} onChange={() => togglePreference('guidance')} read={read} />
+          <PreferenceSwitch title="Lembretes" description="Ajusta os avisos locais." value={preferences.reminders} onChange={() => togglePreference('reminders')} read={read} />
           <View style={[styles.settingCard, { borderColor: theme.border, backgroundColor: theme.card }]}>
             <View style={styles.sectionHeading}>
               <AppText variant="section" style={{ flex: 1 }}>Velocidade da leitura</AppText>
@@ -42,7 +42,7 @@ export default function SettingsScreen(ctx: Pick<AgendaController, 'storageAvail
           <View style={[styles.settingCard, { borderColor: theme.border, backgroundColor: theme.card }]}>
             <View style={styles.sectionHeading}>
               <AppText variant="section" style={{ flex: 1 }}>Antecedência dos lembretes</AppText>
-              <AudioAction text={`Antecedência selecionada: ${preferences.advance}. É apenas uma preferência demonstrativa.`} onRead={read} compact />
+              <AudioAction text={`Antecedência selecionada: ${preferences.advance}. `} onRead={read} compact />
             </View>
             <View style={styles.wrapRow}>
               {['No mesmo dia', '1 dia antes', '2 dias antes'].map((advance) => (
@@ -51,14 +51,14 @@ export default function SettingsScreen(ctx: Pick<AgendaController, 'storageAvail
             </View>
           </View>
           <ActionButton title="Testar orientação (visual)" icon="volume-high-outline" onPress={() => read('Teste de voz. Esta é uma simulação visual de leitura, sem áudio real.')} />
-          <ActionButton title="Redefinir demonstração" icon="refresh-outline" kind="outline" onPress={() => setResetPrompt(true)} />
+          <ActionButton title="Redefinir dados" icon="refresh-outline" kind="outline" onPress={() => setResetPrompt(true)} />
           {resetPrompt ? (
             <View style={[styles.settingCard, { borderColor: theme.border, backgroundColor: theme.card }]}>
-              <AppText variant="section">Redefinir os exemplos?</AppText>
+              <AppText variant="section">Redefinir os dados?</AppText>
               <AppText variant="body">Agendamentos, avisos e preferências voltarão ao início neste dispositivo.</AppText>
-              <AudioAction text="Redefinir registros e preferências fictícios deste dispositivo." onRead={read} />
+              <AudioAction text="Redefinir registros e preferências deste dispositivo." onRead={read} />
               <ActionButton title="Sim, redefinir" icon="refresh-outline" kind="danger" onPress={resetDemo} />
-              <ActionButton title="Manter os exemplos" icon="close" kind="outline" onPress={() => setResetPrompt(false)} />
+              <ActionButton title="Manter os dados" icon="close" kind="outline" onPress={() => setResetPrompt(false)} />
             </View>
           ) : null}
         </>

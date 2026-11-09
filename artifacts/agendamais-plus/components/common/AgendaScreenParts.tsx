@@ -7,7 +7,7 @@ import type { BookingStatus } from '@/types/agenda';
 
 export function StatusText({ status }: { status: BookingStatus }) {
   const theme = useAppTheme();
-  const label = status === 'upcoming' ? 'Agendada · exemplo' : status === 'cancelled' ? 'Cancelada · exemplo' : 'Concluída · exemplo';
+  const label = status === 'upcoming' ? 'Agendada' : status === 'cancelled' ? 'Cancelada' : 'Concluída';
   return (
     <View style={[styles.statusPill, { backgroundColor: status === 'upcoming' ? theme.accent : theme.muted }]}>
       <AppText variant="caption" style={{ color: status === 'cancelled' ? theme.mutedForeground : theme.primary }}>{label}</AppText>

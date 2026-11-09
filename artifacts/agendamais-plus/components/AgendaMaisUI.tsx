@@ -177,7 +177,7 @@ export function AudioAction({
   return (
     <Pressable
       accessibilityRole="button"
-      accessibilityLabel={`Leitura de demonstração: ${text}`}
+      accessibilityLabel={`Leitura da tela: ${text}`}
       testID="audio-demo-button"
       onPress={() => onRead(text)}
       style={({ pressed }) => [
@@ -328,7 +328,7 @@ export function DemoNotice({
   tone = 'info',
 }: PropsWithChildren<{ onRead: (text: string) => void; tone?: 'info' | 'success' | 'warning' }>) {
   const theme = useAppTheme();
-  const message = typeof children === 'string' ? children : 'Informação importante sobre esta demonstração.';
+  const message = typeof children === 'string' ? children : 'Informação importante.';
   return (
     <View
         style={[styles.demoNotice, { backgroundColor: tone === 'success' ? theme.accent : tone === 'warning' ? theme.secondary : theme.muted }]}

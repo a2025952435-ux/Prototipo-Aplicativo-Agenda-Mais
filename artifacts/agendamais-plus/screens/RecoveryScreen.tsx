@@ -12,8 +12,8 @@ export default function RecoveryScreen(ctx: Pick<AgendaController, 'recoveryEmai
   const { recoveryEmail, setRecoveryEmail, formMessage, go, back, read, submitRecovery } = ctx;
       return (
         <>
-          <DemoNotice onRead={read}>A demonstração não envia e-mails. Use qualquer endereço fictício em formato válido.</DemoNotice>
-          <LabeledInput label="E-mail de exemplo" readText="O e-mail será usado somente para mostrar a validação desta tela." value={recoveryEmail} onChangeText={setRecoveryEmail} placeholder="voce@exemplo.com" keyboardType="email-address" autoCapitalize="none" autoComplete="off" />
+          <DemoNotice onRead={read}>A recuperação por e-mail não está disponível. Nenhuma mensagem será enviada.</DemoNotice>
+          <LabeledInput label="E-mail" readText="O e-mail será utilizado apenas nesta tela." value={recoveryEmail} onChangeText={setRecoveryEmail} placeholder="voce@exemplo.com" keyboardType="email-address" autoCapitalize="none" autoComplete="off" />
           {formMessage ? <DemoNotice tone="warning" onRead={read}>{formMessage}</DemoNotice> : null}
           <ActionButton title="Mostrar instrução" icon="mail-outline" onPress={submitRecovery} />
           <ActionButton title="Voltar para entrar" icon="arrow-back" kind="outline" onPress={() => go('login')} />

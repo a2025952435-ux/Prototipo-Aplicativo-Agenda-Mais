@@ -18,12 +18,11 @@ export default function DoctorScreen(ctx: Pick<AgendaController, 'visitType' | '
             </View>
             <AppText variant="title" style={styles.centerText}>{provider}</AppText>
             <AppText variant="body" style={styles.centerText}>{specialty}</AppText>
-            <AudioAction text={`Perfil de ${provider}, da especialidade ${specialty}. Os dados são fictícios.`} onRead={read} />
+            <AudioAction text={`Perfil de ${provider}, da especialidade ${specialty}.`} onRead={read} />
           </View>
-          <InfoCard title="Sobre este perfil" value="Informações ilustrativas para a apresentação acadêmica." icon="information-circle-outline" onRead={read} />
+          <InfoCard title="Sobre este perfil" value="Conheça mais sobre este profissional." icon="information-circle-outline" onRead={read} />
           <InfoCard title="Atendimento" value={visitLabel(visitType)} icon={visitType === 'online' ? 'videocam-outline' : 'location-outline'} onRead={read} />
-          <DemoNotice onRead={read}>Não há cadastro profissional, clínica ou disponibilidade real.</DemoNotice>
-          <ActionButton title="Ver horários de exemplo" icon="time-outline" onPress={() => go('schedule')} />
+          <ActionButton title="Ver horários" icon="time-outline" onPress={() => go('schedule')} />
           <ActionButton title="Escolher outro profissional" icon="arrow-back" kind="outline" onPress={() => go('doctors')} />
         </>
       );

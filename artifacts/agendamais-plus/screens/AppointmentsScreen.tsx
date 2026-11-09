@@ -12,10 +12,10 @@ export default function AppointmentsScreen(ctx: Pick<AgendaController, 'bookings
   const { bookings, specialty, provider, setSelectedBookingId, setInCall, theme, go, read, proceedToBooking } = ctx;
       return (
         <>
-          <DemoNotice onRead={read}>Os registros ficam neste aparelho. Não são consultas médicas reais.</DemoNotice>
-          <SectionHeading title="Próximos agendamentos de exemplo" read={read} />
+          <DemoNotice onRead={read}>Os agendamentos ficam salvos neste aparelho e não são enviados a clínicas.</DemoNotice>
+          <SectionHeading title="Próximos agendamentos" read={read} />
           {bookings.length === 0 ? (
-            <EmptyState title="Nenhum agendamento de exemplo" description="Quando você concluir o fluxo, ele aparecerá aqui." icon="calendar-outline" />
+            <EmptyState title="Nenhum agendamento" description="Quando você concluir o fluxo, ele aparecerá aqui." icon="calendar-outline" />
           ) : (
             bookings.map((booking) => (
               <View key={booking.id} style={[styles.bookingCard, { backgroundColor: theme.card, borderColor: theme.border }]}>
@@ -38,7 +38,7 @@ export default function AppointmentsScreen(ctx: Pick<AgendaController, 'bookings
               </View>
             ))
           )}
-          <ActionButton title="Agendar um exemplo" icon="add" kind="outline" onPress={proceedToBooking} />
+          <ActionButton title="Agendar consulta" icon="add" kind="outline" onPress={proceedToBooking} />
         </>
       );
 }

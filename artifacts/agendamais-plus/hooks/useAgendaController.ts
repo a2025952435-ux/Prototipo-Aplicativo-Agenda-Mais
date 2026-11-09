@@ -46,7 +46,7 @@ export function useAgendaController() {
   const [notices, setNotices] = useState<Notice[]>(initialNotices);
   const [visitType, setVisitType] = useState<VisitType>('online');
   const [specialty, setSpecialty] = useState(specialties[0]);
-  const [provider, setProvider] = useState('Profissional de demonstração A');
+  const [provider, setProvider] = useState('Profissional A');
   const [selectedDate, setSelectedDate] = useState('');
   const [selectedTime, setSelectedTime] = useState('');
   const [selectedBookingId, setSelectedBookingId] = useState<string | null>(null);
@@ -63,7 +63,7 @@ export function useAgendaController() {
   const [registerConfirmation, setRegisterConfirmation] = useState('');
   const [recoveryEmail, setRecoveryEmail] = useState('');
   const [formMessage, setFormMessage] = useState('');
-  const [profileName, setProfileName] = useState('Pessoa usuária de demonstração');
+  const [profileName, setProfileName] = useState('Usuário AgendaMais');
   const [draftProfileName, setDraftProfileName] = useState('');
   const [draftProfileEmail, setDraftProfileEmail] = useState('');
   const [draftProfilePhone, setDraftProfilePhone] = useState('');
@@ -78,8 +78,8 @@ export function useAgendaController() {
   const activeOnlineBooking = bookings.find((booking) => booking.status === 'upcoming' && booking.type === 'online') ?? null;
   const demoProviders = useMemo(
     () => [
-      { name: 'Profissional de demonstração A', specialty },
-      { name: 'Profissional de demonstração B', specialty },
+      { name: 'Profissional A', specialty },
+      { name: 'Profissional B', specialty },
     ],
     [specialty],
   );
@@ -186,9 +186,9 @@ export function useAgendaController() {
     setNotices((items) => [
       {
         id: `demo-booking-${id}`,
-        title: 'Registro de demonstração atualizado',
-        body: 'Uma consulta fictícia foi adicionada neste dispositivo. Nenhum serviço de saúde foi contatado.',
-        date: 'Agora · exemplo',
+        title: 'Agendamento registrado',
+        body: 'Agendamento salvo neste dispositivo. Nenhuma clínica foi contatada.',
+        date: 'Agora',
         read: false,
       },
       ...items,
@@ -209,7 +209,7 @@ export function useAgendaController() {
 
   const submitLogin = () => {
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(loginEmail) || loginPassword.length < 4) {
-      setFormMessage('Digite um e-mail de exemplo válido e uma senha com pelo menos 4 caracteres.');
+      setFormMessage('Digite um e-mail válido e uma senha com pelo menos 4 caracteres.');
       return;
     }
     setLoginEmail('');
@@ -220,7 +220,7 @@ export function useAgendaController() {
 
   const submitRegistration = () => {
     if (!registerName.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(registerEmail)) {
-      setFormMessage('Preencha o nome de demonstração e um e-mail em formato válido.');
+      setFormMessage('Preencha seu nome e um e-mail em formato válido.');
       return;
     }
     if (registerPassword.length < 6 || registerPassword !== registerConfirmation) {
@@ -231,17 +231,17 @@ export function useAgendaController() {
     setRegisterEmail('');
     setRegisterPassword('');
     setRegisterConfirmation('');
-    setFormMessage('Cadastro de demonstração concluído. Nenhuma conta foi criada.');
+    setFormMessage('Cadastro local concluído. Nenhuma conta online foi criada.');
     go('accessibility');
   };
 
   const submitRecovery = () => {
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(recoveryEmail)) {
-      setFormMessage('Digite um e-mail de exemplo em formato válido.');
+      setFormMessage('Digite um e-mail em formato válido.');
       return;
     }
     setRecoveryEmail('');
-    setFormMessage('Nenhum e-mail foi enviado. Esta tela serve somente para demonstrar o fluxo.');
+    setFormMessage('Nenhum e-mail foi enviado. A recuperação de acesso não está disponível.');
   };
 
   const cancelBooking = () => {
@@ -252,9 +252,9 @@ export function useAgendaController() {
     setNotices((items) => [
       {
         id: `demo-cancel-${selectedBooking.id}`,
-        title: 'Exemplo de cancelamento',
-        body: 'O registro fictício foi marcado como cancelado neste dispositivo.',
-        date: 'Agora · exemplo',
+        title: 'Agendamento cancelado',
+        body: 'O agendamento foi marcado como cancelado neste dispositivo.',
+        date: 'Agora',
         read: false,
       },
       ...items,
