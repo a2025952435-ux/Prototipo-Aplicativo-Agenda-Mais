@@ -1,3 +1,4 @@
+import { falar } from '../utils/voz';
 import React, { useEffect, useMemo, useState, type ReactNode } from 'react';
 import {
   ActivityIndicator,
@@ -145,7 +146,12 @@ export function useAgendaController() {
     setActiveReading(null);
     setFormMessage('');
   };
-  const read = (text: string) => setActiveReading(text);
+  
+const read = (text: string) => {
+  setActiveReading(text);
+  falar(text);
+};
+
   const resetDemo = () => {
     setBookings([]);
     setNotices(initialNotices);
